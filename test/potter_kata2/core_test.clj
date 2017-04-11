@@ -41,6 +41,30 @@
     (apply +)))
 
 (defn
+  find-maxes-one-generation
+  [coll]
+  (let [coll-and-fit (map #(-> [% (fitness-fn %)]) coll #_(map #(-> [%]) (split-in-groups-of-1 coll)))
+        max-fit (reduce (fn [acc [_ fit]] (max fit acc)) 0 coll-and-fit)]
+    (map first (filter (fn [[_ fit]] (= max-fit fit)) coll-and-fit))))
+
+(defn
+  candidates-next-gen
+  [gen1]
+  (->> (range 0 (count gen1))
+    (map
+      #(let [[a b] (split-at % gen1)
+             selected (first b)
+             rest- (concat a (rest b))]
+         {:selected selected :rest rest- }))))
+
+(defn
+  find-next-gen
+  [generation]
+  (find-maxes-one-generation (let [{selected :selected rest- :rest} (first (candidates-next-gen generation))]
+                               (for [r rest-]
+                                 [(into [] (concat (flatten selected) (flatten r)))]))))
+
+(defn
   price
   [books]
   1)
