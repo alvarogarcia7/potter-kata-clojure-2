@@ -1,6 +1,5 @@
 (ns potter-kata2.core-test
   (:require [clojure.test :refer :all]
-            [potter-kata2.core :refer :all]
             [midje.sweet :refer :all]))
 
 (def cheap
