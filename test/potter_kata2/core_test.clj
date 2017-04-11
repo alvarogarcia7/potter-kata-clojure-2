@@ -1,6 +1,5 @@
 (ns potter-kata2.core-test
-  (:require [clojure.test :refer :all]
-            [midje.sweet :refer :all]))
+  (:require [midje.sweet :refer :all]))
 
 (def cheap
   [1 1 2 2 3 3 4 5])
