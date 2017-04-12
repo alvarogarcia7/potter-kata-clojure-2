@@ -58,11 +58,17 @@
          {:selected selected :rest rest- }))))
 
 (defn
+  find-single-xxx [candidates]
+                 (find-maxes-one-generation (let [{selected :selected rest- :rest} candidates]
+                                              (for [r rest-]
+                                                [(into [] (concat (flatten selected) (flatten r)))]))))
+
+(defn
   find-next-gen
   [generation]
-  (find-maxes-one-generation (let [{selected :selected rest- :rest} (first (candidates-next-gen generation))]
-                               (for [r rest-]
-                                 [(into [] (concat (flatten selected) (flatten r)))]))))
+  (letfn []
+    (map find-single-xxx generation)
+    ))
 
 (defn
   price

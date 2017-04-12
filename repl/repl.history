@@ -1,0 +1,492 @@
+Starting nREPL server...
+Connecting to local nREPL server...
+Clojure 1.8.0
+nREPL server started on port 55111 on host 127.0.0.1 - nrepl://127.0.0.1:55111
+Loading test/potter_kata2/core_test.clj...
+WARNING: cat already refers to: #'clojure.core/cat in namespace: net.cgrand.parsley.fold, being replaced by: #'net.cgrand.parsley.fold/cat
+WARNING: update already refers to: #'clojure.core/update in namespace: utilize.map, being replaced by: #'utilize.map/update
+WARNING: update already refers to: #'clojure.core/update in namespace: clojure.math.combinatorics, being replaced by: #'clojure.math.combinatorics/update
+Run `(doc midje)` for Midje usage.
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: candidates-next-gen in this context, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test.clj:53:76)
+(in-ns 'potter-kata2.core-test
+       )
+=> #object[clojure.lang.Namespace 0x4f5696b1 "potter-kata2.core-test"]
+Loading test/potter_kata2/core_test.clj... done
+
+FAIL "about books - price the books at the cheapest possible" at (core_test.clj:76)
+    Expected: 51.2
+      Actual: 1
+(find-maxes-one-generation (split-in-groups-of-1 cheap))
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+(->> cheap
+     (map #(-> [%]))
+     find-maxes-one-generation)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:542)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation)
+=> ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen)
+=>
+({:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[4]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[5]])}
+ {:selected [[5]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[4]])})
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen)
+IllegalArgumentException No matching clause: 0  potter-kata2.core-test/discount (core_test.clj:13)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen)
+=>
+({:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[4]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[5]])}
+ {:selected [[5]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[4]])})
+Loading test/potter_kata2/core_test.clj... done
+
+FAIL "about books - price the books at the cheapest possible" at (core_test.clj:79)
+    Expected: 51.2
+      Actual: 1
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen)
+=>
+({:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[2]], :rest ([[1]] [[1]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[3]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[4]] [[5]])}
+ {:selected [[4]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[5]])}
+ {:selected [[5]], :rest ([[1]] [[1]] [[2]] [[2]] [[3]] [[3]] [[4]])})
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen)
+=> (() () () () () () () ())
+Loading test/potter_kata2/core_test.clj...
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: generation in this context, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test.clj:62:84)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     find-next-gen)
+=> (() ())
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     )
+=> {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     )
+=> {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     find-single-xxx)
+IllegalStateException Attempting to call unbound fn: #'potter-kata2.core-test/find-single-xxx  clojure.lang.Var$Unbound.throwArity (Var.java:43)
+Loading test/potter_kata2/core_test.clj...
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: generation in this context, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test.clj:62:84)
+Loading test/potter_kata2/core_test.clj... done
+
+FAIL "about books - price the books at the cheapest possible" at (core_test.clj:82)
+    Expected: 51.2
+      Actual: 1
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     find-single-xxx)
+=> ()
+Loading test/potter_kata2/core_test.clj... done
+
+FAIL "about books - price the books at the cheapest possible" at (core_test.clj:82)
+    Expected: 51.2
+      Actual: 1
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     )
+=> {:selected [[1]], :rest ([[1]] [[2]] [[2]] [[3]] [[3]] [[4]] [[5]])}
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     first
+     find-single-xxx
+     )
+=> ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     )
+=>
+(([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+ ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     (map fitness-fn)
+     )
+=> (0 0 0 0 0 0 0 0)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     )
+=>
+(([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+ ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     first
+     )
+=> ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     first
+     fitness-fn
+     )
+=> 0
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     first
+     (map fitness-fn)
+     )
+=> (5 5 5 5 5 5)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     (map #(map fitness-fn %))
+     )
+=> ((5 5 5 5 5 5) (5 5 5 5 5 5) (5 5 5 5 5 5) (5 5 5 5 5 5) (5 5 5 5 5 5) (5 5 5 5 5 5) (5 5 5 5 5 5 5) (5 5 5 5 5 5 5))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     )
+=>
+(([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+ ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     )
+=>
+(([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+ ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+ ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     find-next-gen
+     )
+IllegalArgumentException No value supplied for key: [[4 5]]  clojure.lang.PersistentHashMap.create (PersistentHashMap.java:77)
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     candidates-next-gen
+     )
+=>
+({:selected ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]))}
+ {:selected ([[5 1]] [[5 1]] [[5 2]] [[5 2]] [[5 3]] [[5 3]] [[5 4]]),
+  :rest (([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[1 2]] [[1 2]] [[1 3]] [[1 3]] [[1 4]] [[1 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[2 1]] [[2 1]] [[2 3]] [[2 3]] [[2 4]] [[2 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[3 1]] [[3 1]] [[3 2]] [[3 2]] [[3 4]] [[3 5]])
+         ([[4 1]] [[4 1]] [[4 2]] [[4 2]] [[4 3]] [[4 3]] [[4 5]]))})
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     )
+=>
+(([[1 2 1 2 1 3 1 3 1 4 1 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[1 2 1 2 1 3 1 3 1 4 1 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[4 1 4 1 4 2 4 2 4 3 4 3 4 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[5 1 5 1 5 2 5 2 5 3 5 3 5 4 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]))
+(->> cheap
+     split-in-groups-of-1
+     (map #(-> [%]))
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     )
+=>
+(([[1 2 1 2 1 3 1 3 1 4 1 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[1 2 1 2 1 3 1 3 1 4 1 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[1 2 1 2 1 3 1 3 1 4 1 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[2 1 2 1 2 3 2 3 2 4 2 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]
+  [[3 1 3 1 3 2 3 2 3 4 3 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[4 1 4 1 4 2 4 2 4 3 4 3 4 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[4 1 4 1 4 2 4 2 4 3 4 3 4 5 5 1 5 1 5 2 5 2 5 3 5 3 5 4]])
+ ([[5 1 5 1 5 2 5 2 5 3 5 3 5 4 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 1 2 1 2 1 3 1 3 1 4 1 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 2 1 2 1 2 3 2 3 2 4 2 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 3 1 3 1 3 2 3 2 3 4 3 5]]
+  [[5 1 5 1 5 2 5 2 5 3 5 3 5 4 4 1 4 1 4 2 4 2 4 3 4 3 4 5]]))
