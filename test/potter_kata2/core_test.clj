@@ -21,7 +21,7 @@
 (defn
   split-in-groups-of-1
   [cheap]
-  (for [i cheap] [i]))
+  (for [i cheap] [[i]]))
 
 (defn
   pairs
