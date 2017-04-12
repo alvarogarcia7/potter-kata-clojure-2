@@ -11,10 +11,14 @@
   [coll]
   (first (filter #(= (first %) (apply max (map first coll))) coll)))
 
+(defn
+  candidates
+  [ele groups]
+  (concat [[ele]] (map #(conj % ele) groups)))
+
 (defn assign
   [ele groups]
-  (let [candidates (concat [ele] (map #(conj % ele) groups))]
-    (map #(-> [potter-kata2.core-test/fitness-fn %] %) candidates)))
+  (map #(-> [potter-kata2.core-test/fitness-fn %] %) candidates))
 
 (defn
   xx
