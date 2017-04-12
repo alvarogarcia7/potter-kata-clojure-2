@@ -45,7 +45,7 @@
   [coll]
   (let [coll-and-fit (map #(-> [% (fitness-fn %)]) coll #_(map #(-> [%]) (split-in-groups-of-1 coll)))
         max-fit (reduce (fn [acc [_ fit]] (max fit acc)) 0 coll-and-fit)]
-    (map first (filter (fn [[_ fit]] (= max-fit fit)) coll-and-fit))))
+    (apply concat (map first (filter (fn [[_ fit]] (= max-fit fit)) coll-and-fit)))))
 
 (defn
   candidates-next-gen
