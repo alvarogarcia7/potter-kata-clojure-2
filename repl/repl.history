@@ -931,3 +931,52 @@ FAIL "about books - price the books at the cheapest possible" at (core_test.clj:
      find-next-gen
      )
 => (() () () () () () () () () () () () () ())
+cheap
+=> [1 1 2 2 3 3 4 5]
+Loading test/potter_kata2/core_test_direct.clj... done
+(in-ns 'potter-kata2.core-test-direct)
+=> #object[clojure.lang.Namespace 0x6a2eed3a "potter-kata2.core-test-direct"]
+cheap
+=> [1 1 2 2 3 3 4 5]
+Loading test/potter_kata2/core_test_direct.clj...
+CompilerException java.lang.Exception: :only/:refer value must be a sequential collection of symbols, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test_direct.clj:1:1)
+Loading test/potter_kata2/core_test_direct.clj...
+CompilerException java.lang.IllegalAccessError: :fitness-fn does not exist, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test_direct.clj:1:1)
+Loading test/potter_kata2/core_test_direct.clj...
+CompilerException java.lang.IllegalAccessError: :fitness-fn does not exist, compiling:(/Users/alvaro/Documents/sandbox/clojure/potter-kata2/test/potter_kata2/core_test_direct.clj:1:1)
+Loading test/potter_kata2/core_test_direct.clj... done
+(fitness-fn)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: fitness-fn in this context, compiling:(/private/var/folders/6p/p1cct37x19bgtnss368w24mm0000gn/T/form-init442502075522691563.clj:1:1)
+(potter-kata2.core-test/fitness-fn)
+ArityException Wrong number of args (0) passed to: core-test/fitness-fn  clojure.lang.AFn.throwArity (AFn.java:429)
+(max [[1 \a] [2 \b]])
+=> [[1 \a] [2 \b]]
+(apply max [[1 \a] [2 \b]])
+ClassCastException clojure.lang.PersistentVector cannot be cast to java.lang.Number  clojure.lang.Numbers.gt (Numbers.java:229)
+(map first [[1 \a] [2 \b]])
+=> (1 2)
+(apply max (map first [[1 \a] [2 \b]]))
+=> 2
+(filter #(= (first %) (apply max (map first [[1 \a] [2 \b]]))) [[1 \a] [2 \b]])
+=> ([2 \b])
+(first (filter #(= (first %) (apply max (map first [[1 \a] [2 \b]]))) [[1 \a] [2 \b]]))
+=> [2 \b]
+Loading test/potter_kata2/core_test_direct.clj... done
+(assign 1 [])
+=> nil
+(assign 1 [[]])
+IllegalArgumentException Key must be integer  clojure.lang.APersistentVector.invoke (APersistentVector.java:292)
+(assign 1 [])
+=> nil
+Loading test/potter_kata2/core_test_direct.clj... done
+(assign 1 [])
+=> ()
+Loading test/potter_kata2/core_test_direct.clj... done
+(assign 1 [])
+ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  potter-kata2.core-test-direct/assign/fn--13075 (core_test_direct.clj:15)
+(let [ele 1
+      groups []] (concat [ele] (map #(conj % ele) groups)))
+=> (1)
+(let [ele 1
+      groups []] (concat [[ele]] (map #(conj % ele) groups)))
+=> ([1])
