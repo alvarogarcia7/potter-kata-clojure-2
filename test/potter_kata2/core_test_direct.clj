@@ -11,6 +11,15 @@
   [coll]
   (first (filter #(= (first %) (apply max (map first coll))) coll)))
 
+;; ele = 1
+;; group = [[1 2]]
+(defn generate-candidates
+  "docstring"
+  [ele group]
+  (map (fn [group] {:fit (potter-kata2.core-test/fitness-fn group) :group group})
+       (map (fn [a] [a])
+            (candidates ele group))))
+
 (defn
   candidates
   [ele groups]
