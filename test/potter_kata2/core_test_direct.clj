@@ -1,6 +1,8 @@
 (ns potter-kata2.core-test-direct
   (:require [potter-kata2.core-test :only [:fitness-fn]]))
 
+;; Idea: add the elements, one by one, to the group where discount is maximized
+
 (def cheap
   [1 1 2 2 3 3 4 5])
 
