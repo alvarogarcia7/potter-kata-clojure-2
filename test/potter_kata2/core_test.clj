@@ -88,3 +88,12 @@
     (discount [1 2 3 4]) => 20
     (discount [1 2 3 4 5]) => 25))
 
+(->> cheap
+     split-in-groups-of-1
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     find-maxes-one-generation
+     candidates-next-gen
+     find-next-gen
+     )
