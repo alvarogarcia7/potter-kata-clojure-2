@@ -8,12 +8,18 @@
 ;; [[1 2] [3 3 1]], [] ; best set, remaining books.
 ;;       computation is finished when the remaining books collection is empty
 
+
 (defn price
   "calculates the cheapest price for the book set, splitting in series to apply the maximum discount"
   ([books]
    (price [] books))
   ([best-set remaining-books]
-    ))
+    (if (empty? remaining-books)
+      best-set
+      (let [current-book (first remaining-books)
+            new-remaining-books (rest remaining-books)
+            new-best-set (add-to-set best-set current-book)]
+        (price new-best-set new-remaining-books)))))
 
 (def cheap
   [1 1 2 2 3 3 4 5])
