@@ -9,6 +9,34 @@
 ;;       computation is finished when the remaining books collection is empty
 
 
+(defn
+  candidates
+  [ele groups]
+  (concat [[ele]] (map #(conj % ele) groups)))
+
+(defn generate-candidates
+  [ele group]
+  (map (fn [group] {:fit (potter-kata2.core-test/fitness-fn group) :group group})
+       (map (fn [a] [a])
+            (candidates ele group))))
+
+(defn
+  max-fitness
+  [xxx]
+  (apply max (map :fit xxx)))
+
+(defn
+  select-max
+  [xxx]
+  (let [max-fit (max-fitness xxx)]
+    (first (filter #(= max-fit (:fit %)) xxx))))
+
+(defn add-to-set
+  "creates the cheapes set of books given the previous generation of sets, plus the new book"
+  [set element]                                             ; set = [[1 2] [2]], element = 1
+    (let [candidates (generate-candidates element set)]
+      (:group (select-max candidates))))
+
 (defn price
   "calculates the cheapest price for the book set, splitting in series to apply the maximum discount"
   ([books]
@@ -29,19 +57,7 @@
   [coll]
   (first (filter #(= (first %) (apply max (map first coll))) coll)))
 
-;; ele = 1
-;; group = [[1 2]]
-(defn generate-candidates
-  "docstring"
-  [ele group]
-  (map (fn [group] {:fit (potter-kata2.core-test/fitness-fn group) :group group})
-       (map (fn [a] [a])
-            (candidates ele group))))
 
-(defn
-  candidates
-  [ele groups]
-  (concat [[ele]] (map #(conj % ele) groups)))
 
 (defn assign
   [ele groups]
