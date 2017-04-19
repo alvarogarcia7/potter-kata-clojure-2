@@ -3,9 +3,15 @@
 
 ;; Idea: add the elements, one by one, to the group where discount is maximized
 ;; data flow
-;; [[]], [1 2 3] ; remaining books
+;; [], [1 2 3] ; remaining books
 ;; [[1 2] [3 3]], [1] ; best set, remaining books
 
+(defn price
+  "calculates the cheapest price for the book set, splitting in series to apply the maximum discount"
+  ([books]
+   (price [] books))
+  ([best-set remaining-books]
+    ))
 
 (def cheap
   [1 1 2 2 3 3 4 5])
