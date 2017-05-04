@@ -29,7 +29,7 @@
   select-max
   [xxx]
   (let [max-fit (max-fitness xxx)]
-    (first (filter #(= max-fit (:fit %)) xxx))))
+    (filter #(= max-fit (:fit %)) xxx)))
 
 (defn add-to-set
   "creates the cheapes set of books given the previous generation of sets, plus the new book"
@@ -62,3 +62,17 @@
   xx
   [coll]
   (reduce (fn [groups ele] (assign ele groups)) coll))
+
+; (next-gen 1 [[1] [2]])
+; ([[2 1]])
+(defn
+  next-gen
+  [ele group]
+  (map :group (select-max (map (fn [group] {:fit (potter-kata2.core-test/fitness-fn group) :group group})
+                           (map (fn [a] [a])
+                                (candidates ele group))))))
+
+
+#_(map (fn [group] {:fit (potter-kata2.core-test/fitness-fn group) :group group})
+     (map (fn [a] [a])
+            (candidates 1 [[1] [2]])))
