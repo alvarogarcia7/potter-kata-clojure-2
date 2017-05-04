@@ -52,11 +52,6 @@
 (def cheap
   [1 1 2 2 3 3 4 5])
 
-(defn
-  select-max
-  [coll]
-  (first (filter #(= (first %) (apply max (map first coll))) coll)))
-
 
 
 (defn assign
